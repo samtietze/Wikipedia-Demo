@@ -4,9 +4,9 @@ import android.app.SearchManager
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.SearchView
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.SearchView
 import com.spr.wikipediademo.R
 import kotlinx.android.synthetic.main.activity_search.*
 
