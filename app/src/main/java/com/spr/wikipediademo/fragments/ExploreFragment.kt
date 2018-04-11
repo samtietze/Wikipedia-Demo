@@ -35,7 +35,7 @@ class ExploreFragment : Fragment() {
 
         searchCardView!!.setOnClickListener{
             val searchIntent = Intent(context, SearchActivity::class.java)
-            context!!.startActivity(searchIntent)
+            context?.startActivity(searchIntent)
         }
 
         exploreRecycler!!.layoutManager = LinearLayoutManager(context)
