@@ -5,15 +5,20 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.spr.wikipediademo.R
 import com.spr.wikipediademo.holders.CardHolder
+import com.spr.wikipediademo.models.WikiPage
 
 class ArticleCardRecyclerAdapter() : RecyclerView.Adapter<CardHolder>() {
 
+    val currentResults: ArrayList<WikiPage> = ArrayList<WikiPage>()
+
     override fun getItemCount(): Int {
-        return 15 //temp
+        return currentResults.size
     }
 
     override fun onBindViewHolder(holder: CardHolder, position: Int) {
-        //To change body of created functions use File | Settings | File Templates.
+        var page = currentResults[position]
+//        Updates the view within its holder
+        holder.updateWithPage(page)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardHolder {

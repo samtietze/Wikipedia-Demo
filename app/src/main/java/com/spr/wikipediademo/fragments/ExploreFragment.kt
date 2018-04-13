@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import com.spr.wikipediademo.R
 import com.spr.wikipediademo.activities.SearchActivity
 import com.spr.wikipediademo.adapters.ArticleCardRecyclerAdapter
+import com.spr.wikipediademo.providers.ArticleDataProvider
 
 
 /**
@@ -22,8 +23,10 @@ import com.spr.wikipediademo.adapters.ArticleCardRecyclerAdapter
  */
 class ExploreFragment : Fragment() {
 
+    private val articleProvider: ArticleDataProvider = ArticleDataProvider()
     var searchCardView: CardView? = null
     var exploreRecycler: RecyclerView? = null
+    var adapter: ArticleCardRecyclerAdapter = ArticleCardRecyclerAdapter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -39,9 +42,18 @@ class ExploreFragment : Fragment() {
         }
 
         exploreRecycler!!.layoutManager = LinearLayoutManager(context)
-        exploreRecycler!!.adapter = ArticleCardRecyclerAdapter()
+        exploreRecycler!!.adapter = adapter
 
         return view
+    }
+
+    private fun getRandomArticles(){
+        articleProvider.getRandom(15, { wikiResult ->
+            // do something with articles
+            adapter.currentResults.clear()
+            adapter.currentResults.addAll(wikiResult.query!!.pages)
+            activity!!.runOnUiThread { adapter.notifyDataSetChanged() }
+        })
     }
 
 
