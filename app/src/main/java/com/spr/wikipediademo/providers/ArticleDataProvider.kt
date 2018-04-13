@@ -29,6 +29,7 @@ class ArticleDataProvider {
 
     fun getRandom(take: Int, responseHandler: (result: WikiResult) -> Unit?){
         Urls.getRandomUrl(take).httpGet()
+                
 //                Underscore is an unused parameter that tells the compiler not to process it
                 .responseObject(WikipediaDataDeserializer()){ _, response, result ->
 
@@ -37,7 +38,6 @@ class ArticleDataProvider {
                     }
                     val(data, error) = result
                     responseHandler.invoke(data as WikiResult)
-
                 }
     }
 
@@ -48,5 +48,4 @@ class ArticleDataProvider {
 //        override fun deserialize(reader: Reader): WikiResult? {
 //            return Gson().fromJson(reader, WikiResult::class.java)
 //        }
-
 }
