@@ -5,15 +5,19 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.spr.wikipediademo.R
 import com.spr.wikipediademo.holders.ListItemHolder
+import com.spr.wikipediademo.models.WikiPage
 
 class ArticleListItemRecyclerAdapter() : RecyclerView.Adapter<ListItemHolder>() {
 
+    val currentResults : ArrayList<WikiPage> = ArrayList<WikiPage>()
+
     override fun getItemCount(): Int {
-        return 15 //temp
+        return currentResults.size
     }
 
     override fun onBindViewHolder(holder: ListItemHolder, position: Int) {
-        //To change body of created functions use File | Settings | File Templates.
+        var page = currentResults[position]
+        holder.updateWithPage(page)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListItemHolder {
