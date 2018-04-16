@@ -34,4 +34,5 @@ class CardHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         if(page.thumbnail != null)
             Picasso.with(itemView.context).load(page.thumbnail!!.source).into(articleImageView)
     }
+//    TODO: Add a conditional to use the default thumb when thumbnail == null
 }
