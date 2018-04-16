@@ -19,7 +19,7 @@ class ArticleDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_article_detail)
 
-        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         val wikiPageJson = intent.getStringExtra("page")
@@ -40,7 +40,7 @@ class ArticleDetailActivity : AppCompatActivity() {
         if(item!!.itemId == android.R.id.home) {
             finish()
         }
-        return true;
+        return true
     }
 
 }

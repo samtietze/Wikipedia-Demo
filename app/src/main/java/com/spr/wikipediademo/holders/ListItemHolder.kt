@@ -10,7 +10,6 @@ import com.spr.wikipediademo.R
 import com.spr.wikipediademo.activities.ArticleDetailActivity
 import com.spr.wikipediademo.models.WikiPage
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.article_card_item.view.*
 
 class ListItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val articleImageView: ImageView = itemView.findViewById<ImageView>(R.id.result_icon)
